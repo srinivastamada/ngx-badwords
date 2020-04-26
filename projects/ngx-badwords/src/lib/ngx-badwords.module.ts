@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
-import { NgxBadwordsComponent } from './ngx-badwords.component';
-
-
+import { NgxBadwordsService } from './ngx-badwords.service';
 
 @NgModule({
-  declarations: [NgxBadwordsComponent],
-  imports: [
-  ],
-  exports: [NgxBadwordsComponent]
+  providers: [NgxBadwordsService],
 })
-export class NgxBadwordsModule { }
+export class NgxBadwordsModule {}

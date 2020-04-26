@@ -3,5 +3,4 @@
  */
 
 export * from './lib/ngx-badwords.service';
-export * from './lib/ngx-badwords.component';
 export * from './lib/ngx-badwords.module';
