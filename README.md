@@ -1,24 +1,67 @@
 # NgxBadwords
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+bad-words provider for Angular
 
-## Code scaffolding
+# Installation
+```
+npm install --save bad-words ngx-badword
+```
 
-Run `ng generate component component-name --project ngx-badwords` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-badwords`.
-> Note: Don't forget to add `--project ngx-badwords` or else it will be added to the default project in your `angular.json` file. 
+or if you use yarn:
 
-## Build
+``` typescript
+yarn add bad-words ngx-badwords
+```
 
-Run `ng build ngx-badwords` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Usage
+Import NgxBadwordsModule into your app's modules:
+``` typescript
+import { NgxBadwordsModule } from 'ngx-badword';
+ 
+@NgModule({
+  imports: [
+    NgxBadwordsModule
+  ]
+})
+```
 
-## Publishing
+Import NgxBadwordsService into your app's components:
 
-After building your library with `ng build ngx-badwords`, go to the dist folder `cd dist/ngx-badwords` and run `npm publish`.
+``` typescript
+import { NgxBadwordsService } from 'ngx-badwords'
 
-## Running unit tests
+export class AppComponent implements OnInit {
+  
+  constructor(private ngxBadwordsService: NgxBadwordsService){
+  }
 
-Run `ng test ngx-badwords` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  ngOnInit(){
+    let filterWord = this.ngxBadwordsService.clean("Don't be an ash0le");
+    console.log(filterWord);//Don't be an ******
+  }
+}
+```
 
-## Further help
+Remove words from the blacklist
+
+``` typescript
+import { NgxBadwordsService } from 'ngx-badwords'
+
+export class AppComponent implements OnInit {
+  
+  constructor(private ngxBadwordsService: NgxBadwordsService){
+   let removeWords = ['hells', 'sadist'];
+    this.filter.removeWords(removeWords);
+  }
+
+  ngOnInit(){
+    let filterWord = this.ngxBadwordsService.clean("some sadist hells word");
+    console.log(filterWord); //some sadist hells word!
+  }
+}
+```
+
+# License
+The MIT License (MIT)
 
 srinivas@9lessons.info
